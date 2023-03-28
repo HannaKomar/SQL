@@ -1,111 +1,124 @@
+1) Создать таблицу employees
+- id serial,  primary key,
+- employee_name. Varchar(50), not null
+
 create table employees(
     id serial primary key,
     employee_name varchar(50) not null
    );
    
 select * from employees;
+
+2) Наполнить таблицу employee 70 строками
+
+insert into employees(employee_name)
+ values ('Ivan'),
+        ('Alex'),
+        ('Oleg'),
+        ('Sergei'),
+        ('Semen'),
+        ('Peter'),
+        ('Michal'),
+        ('Igor'),
+        ('Vladimir'),
+        ('Aleksandr'),
+        ('Maksim'),
+        ('Nicolaj'),
+        ('Evgenij'),
+        ('Anna'),
+        ('Elena'),
+        ('Olga'),
+        ('Marina'),
+        ('Zoja'),
+        ('Lilij'),
+        ('Irina'),
+        ('Svetlana'),
+        ('Kate'),
+        ('Julija'),
+        ('Sofia'),
+        ('Vera'),
+        ('Violeta'),
+        ('Tatsiana'),
+        ('Margo'),
+        ('Arina'),
+        ('Valentina'),
+        ('Nika'),
+        ('Andrew'),
+        ('Kirill'),
+        ('Matvej'),
+        ('Zahar'),
+        ('Arhip'),
+        ('Aslan'),
+        ('Bogdan'),
+        ('Vlad'),
+        ('Victor'),
+        ('Ilya'),
+        ('Vitalij'),
+        ('Genrih'),
+        ('Gari'),
+        ('Valerij'),
+        ('Georgij'),
+        ('Gleb'),
+        ('Zlata'),
+        ('Arsen'),
+        ('John'),
+        ('Dominik'),
+        ('Jack'),
+        ('Rosa'),
+        ('Liza'),
+        ('Ignat'),
+        ('Lev'),
+        ('Richard'),
+        ('Orest'),
+        ('Makar'),
+        ('Timur'),
+        ('Fred'),
+        ('Filipp'),
+        ('Artur'),
+        ('Galina'),
+        ('Anastasia'),
+        ('Natalia'),
+        ('Daria'),
+        ('Erik'),
+        ('Miroslav'),
+        ('Larisa');
  
-  insert
-	into
-	employees(employee_name)
-values ('Ivan'),
-       ('Alex'),
-       ('Oleg'),
-       ('Sergei'),
-       ('Semen'),
-       ('Peter'),
-       ('Michal'),
-       ('Igor'),
-       ('Vladimir'),
-       ('Aleksandr'),
-       ('Maksim'),
-       ('Nicolaj'),
-       ('Evgenij'),
-       ('Anna'),
-       ('Elena'),
-       ('Olga'),
-       ('Marina'),
-       ('Zoja'),
-       ('Lilij'),
-       ('Irina'),
-       ('Svetlana'),
-       ('Kate'),
-       ('Julija'),
-       ('Sofia'),
-       ('Vera'),
-       ('Violeta'),
-       ('Tatsiana'),
-       ('Margo'),
-       ('Arina'),
-       ('Valentina'),
-       ('Nika'),
-       ('Andrew'),
-       ('Kirill'),
-       ('Matvej'),
-       ('Zahar'),
-       ('Arhip'),
-       ('Aslan'),
-       ('Bogdan'),
-       ('Vlad'),
-       ('Victor'),
-       ('Ilya'),
-       ('Vitalij'),
-       ('Genrih'),
-       ('Gari'),
-       ('Valerij'),
-       ('Georgij'),
-       ('Gleb'),
-       ('Zlata'),
-       ('Arsen'),
-       ('John'),
-       ('Dominik'),
-       ('Jack'),
-       ('Rosa'),
-       ('Liza'),
-       ('Ignat'),
-       ('Lev'),
-       ('Richard'),
-       ('Orest'),
-       ('Makar'),
-       ('Timur'),
-       ('Fred'),
-       ('Filipp'),
-       ('Artur'),
-       ('Galina'),
-       ('Anastasia'),
-       ('Natalia'),
-       ('Daria'),
-       ('Erik'),
-       ('Miroslav'),
-       ('Larisa');
-       
+3) Создать таблицу salary
+- id serial  primary key,
+- monthly_salary. Int, not null
+
  create table salary(
     id serial primary key,
     monthly_salary int not null
    );
    
-  select * from salary; 
-  
- insert
-	into
-	salary (monthly_salary)
-values (1000),
-       (1100),
-       (1200),
-       (1300),
-       (1400),
-       (1500),
-       (1600),
-       (1700),
-       (1800),
-       (1900),
-       (2000),
-       (2100),
-       (2200),
-       (2300),
-       (2400),
-       (2500);
-       
+ select * from salary; 
+ 
+4) Наполнить таблицу salary 16 строками
+
+insert into salary (monthly_salary)
+ values (1000),
+        (1100),
+        (1200),
+        (1300),
+        (1400),
+        (1500),
+        (1600),
+        (1700),
+        (1800),
+        (1900),
+        (2000),
+        (2100),
+        (2200),
+        (2300),
+        (2400),
+        (2500);
+ 
+5) Создать таблицу employee_salary
+- id serial  primary key,
+- employee_id. Int, not null, unique
+- salary_id. Int, not null
+
  create table employee_salary(
     id serial primary key,
     employee_id int unique not null,
@@ -113,7 +126,9 @@ values (1000),
    ); 
   
   select * from employee_salary; 
-  
+6) Наполнить таблицу employee_salary 40 строками:
+- в 10 строк из 40 вставить несуществующие employee_id
+
  insert into employee_salary(employee_id, salary_id)
      values (3,7),
             (1,4),
@@ -155,7 +170,11 @@ values (1000),
             (78,2),
             (79,6),
             (80,6);
-            
+
+7) Создать таблицу roles
+- id serial  primary key,
+- role_name int, not null, unique
+
  create table roles(
     id serial primary key,
    role_name int unique not null
@@ -163,12 +182,12 @@ values (1000),
   
  select * from roles;
 
-alter table roles 
-alter column role_name type varchar(30);
+8) Поменять тип столба role_name с int на varchar(30)
+ alter table roles 
+ alter column role_name type varchar(30);
 
-insert
-	into
-	roles(role_name)
+9) Наполнить таблицу roles 20 строками
+insert into roles(role_name)
 values ('Junior Python developer'),
        ('Middle Python developer'),
        ('Senior Python developer'),
@@ -189,16 +208,27 @@ values ('Junior Python developer'),
        ('Junior Automation QA engineer'),
        ('Middle Automation QA engineer'),
        ('Senior Automation QA engineer');
-       
-create table roles_employee(
-    id serial primary key,
+      
+10) Создать таблицу roles_employee
+- id serial primary key,
+- employee_id. Int, not null, unique (внешний ключ для таблицы employees, поле id)
+- role_id. Int, not null (внешний ключ для таблицы roles, поле id)
+
+ create table roles_employee(
+   id serial primary key,
    employee_id int unique not null,
-   role_id int not null
+   role_id int not null,
+   foreign key (employee_id)
+      references employees(id),
+   foreign key (role_id)
+      references roles(id)
   ); 
   
  select * from roles_employee;
+
+11) Наполнить таблицу roles_employee 40 строками:
  
-insert into roles_employee(employee_id, role_id)
+ insert into roles_employee(employee_id, role_id)
      values (1,2),
             (2,4),
             (3,6),
@@ -238,4 +268,4 @@ insert into roles_employee(employee_id, role_id)
             (57,6),
             (58,2),
             (59,6),
-            (40,6);
+            (40,6);           

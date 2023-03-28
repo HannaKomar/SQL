@@ -1,6 +1,6 @@
 1) Создать таблицу employees
-- id serial,  primary key,
-- employee_name. Varchar(50), not null
+- id serial primary key,
+- employee_name varchar(50), not null
 
 create table employees(
     id serial primary key,
@@ -84,8 +84,8 @@ insert into employees(employee_name)
         ('Larisa');
  
 3) Создать таблицу salary
-- id serial  primary key,
-- monthly_salary. Int, not null
+- id serial primary key,
+- monthly_salary int, not null
 
  create table salary(
     id serial primary key,
@@ -116,8 +116,8 @@ insert into salary (monthly_salary)
  
 5) Создать таблицу employee_salary
 - id serial  primary key,
-- employee_id. Int, not null, unique
-- salary_id. Int, not null
+- employee_id int, not null, unique
+- salary_id int, not null
 
  create table employee_salary(
     id serial primary key,
@@ -127,7 +127,7 @@ insert into salary (monthly_salary)
   
   select * from employee_salary; 
 6) Наполнить таблицу employee_salary 40 строками:
-- в 10 строк из 40 вставить несуществующие employee_id
+   в 10 строк из 40 вставить несуществующие employee_id
 
  insert into employee_salary(employee_id, salary_id)
      values (3,7),
@@ -172,17 +172,18 @@ insert into salary (monthly_salary)
             (80,6);
 
 7) Создать таблицу roles
-- id serial  primary key,
+- id serial primary key,
 - role_name int, not null, unique
 
  create table roles(
-    id serial primary key,
+   id serial primary key,
    role_name int unique not null
   ); 
   
  select * from roles;
 
 8) Поменять тип столба role_name с int на varchar(30)
+
  alter table roles 
  alter column role_name type varchar(30);
 
@@ -211,8 +212,8 @@ values ('Junior Python developer'),
       
 10) Создать таблицу roles_employee
 - id serial primary key,
-- employee_id. Int, not null, unique (внешний ключ для таблицы employees, поле id)
-- role_id. Int, not null (внешний ключ для таблицы roles, поле id)
+- employee_id int, not null, unique (внешний ключ для таблицы employees, поле id)
+- role_id int, not null (внешний ключ для таблицы roles, поле id)
 
  create table roles_employee(
    id serial primary key,
@@ -226,7 +227,7 @@ values ('Junior Python developer'),
   
  select * from roles_employee;
 
-11) Наполнить таблицу roles_employee 40 строками:
+11) Наполнить таблицу roles_employee 40 строками
  
  insert into roles_employee(employee_id, role_id)
      values (1,2),

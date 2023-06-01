@@ -1,8 +1,8 @@
- --1. Вывести все поля и все строки
+--1. Вывести все поля и все строки
  
- select * from students; 
+select * from students; 
  
--- 2. Вывести всех студентов в таблице
+--2. Вывести всех студентов в таблице
 
 select id, name from students;
 
@@ -10,7 +10,7 @@ select id, name from students;
 
 select id from students;
 
--- 4. Вывести только имя пользователей
+--4. Вывести только имя пользователей
 
 select name from students;
 
@@ -130,7 +130,7 @@ where created_on='2020-10-03 00:00:00' or created_on='2021-05-19 00:00:00' or cr
 
 select min(id) from students;
 
- --29. Вывести максимальный id
+--29. Вывести максимальный id
 
 select max(id) from students;
 
